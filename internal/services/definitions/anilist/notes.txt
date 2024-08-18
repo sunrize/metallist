@@ -1,0 +1,16 @@
+# Get GRAPHQL SCHEMA
+# go install github.com/gqlgo/get-graphql-schema@latest
+get-graphql-schema https://graphql.anilist.co/ > schema.graphql
+
+# Generate client
+# https://github.com/Khan/genqlient/blob/main/docs/introduction.md
+# go install github.com/Khan/genqlient@latest
+genqlient --init
+genqlient
+
+# FAQ
+# https://github.com/Khan/genqlient/blob/main/docs/faq.md
+
+# Authentication
+# https://github.com/Khan/genqlient/blob/main/docs/client_config.md#authentication-and-other-headers
+# https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/getting-started
