@@ -1,0 +1,128 @@
+query getUserID($name: String = "blackrize") {
+  User(name: $name) {
+    id
+  }
+}
+
+query getUserMediaListCollection($userId: Int = 120851, $type: MediaType = ANIME) {
+  MediaListCollection(userId: $userId, type: $type) {
+    lists {
+      name
+      isCustomList
+      isSplitCompletedList
+      status
+    }
+    hasNextChunk
+  }
+}
+
+query getUserMediaListCollectionByStatus($userId: Int = 120851, $type: MediaType = ANIME, $status: MediaListStatus = CURRENT) {
+  MediaListCollection(userId: $userId, type: $type, status: $status) {
+    lists {
+      entries {
+        id
+        mediaId
+        progress
+        media {
+          id
+          idMal
+          title {
+            romaji
+            english
+            native
+            userPreferred
+          }
+          format
+          synonyms
+        }
+      }
+      name
+      isCustomList
+      isSplitCompletedList
+      status
+    }
+    hasNextChunk
+  }
+}
+
+query getShortUserMediaListCollectionByStatus($userId: Int = 120851, $type: MediaType = ANIME, $status: MediaListStatus = CURRENT) {
+  MediaListCollection(userId: $userId, type: $type, status: $status) {
+    lists {
+      entries {
+        id
+        mediaId
+        progress
+      }
+      name
+      isCustomList
+      isSplitCompletedList
+      status
+    }
+    hasNextChunk
+  }
+}
+
+query getUserMediaList($userId: Int = 120851, $type: MediaType = ANIME, $status: MediaListStatus = CURRENT) {
+  MediaList(userId: $userId, type: $type, status: $status) {
+    id
+    mediaId
+    status
+    progress
+    media {
+      id
+      idMal
+      title {
+        romaji
+        english
+        native
+        userPreferred
+      }
+      format
+      synonyms
+    }
+  }
+}
+
+query getPageUserMediaList($page: Int = 1, $perPage: Int = 50, $userId: Int = 120851, $type: MediaType = ANIME, $status: MediaListStatus = CURRENT) {
+  Page(page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    mediaList(userId: $userId, type: $type, status: $status) {
+      id
+      mediaId
+      status
+      progress
+      media {
+        id
+        idMal
+        title {
+          romaji
+          english
+          native
+          userPreferred
+        }
+        format
+        synonyms
+      }
+    }
+  }
+}
+
+mutation updateMediaStatus($mediaId: Int = 1, $status: MediaListStatus = CURRENT) {
+  SaveMediaListEntry(mediaId: $mediaId, status: $status) {
+    id
+    status
+  }
+}
+
+mutation updateMediaProgress($mediaId: Int = 1, $progress: Int = 1) {
+  SaveMediaListEntry(mediaId: $mediaId, progress: $progress) {
+    id
+    status
+  }
+}
