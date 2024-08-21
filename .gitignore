@@ -1,2 +1,4 @@
 .pnpm-store
 internal/services/definitions/anilist/genqlient.graphql.dev
+config/secrets.yaml
+config/*/auth

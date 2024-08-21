@@ -3,9 +3,17 @@ package anilist
 import (
 	"context"
 	"fmt"
+	// "log"
 	"net/http"
+	// "os"
+    // "time"
+	// "errors"
+	// "encoding/json"
+    // "io"
 
 	"github.com/Khan/genqlient/graphql"
+	// "metallist/internal/config"
+	// "golang.org/x/oauth2"
 )
 
 // Implement OAuth: https://anilist.gitbook.io/anilist-apiv2-docs/overview/oauth/getting-started
@@ -33,3 +41,16 @@ func TestRun() {
 	resp, err := getUserID(ctx, client, "blackrize")
 	fmt.Println(resp, err)
 }
+
+// func Testmain() {
+//     // Получаем клиент с аутентификацией
+//     // client, err := getAuthenticatedClient(conf, cacheFile)
+//     // if err != nil {
+//     //     log.Fatal(err)
+//     // }
+
+//     // useAuthenticatedClient(client)
+//     // api_client := graphql.NewClient("https://graphql.anilist.co", client)
+// 	// resp, err := getUserID(ctx, api_client, "blackrize")
+// 	// fmt.Println(resp, err)
+// }
