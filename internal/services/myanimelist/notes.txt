@@ -1,0 +1,6 @@
+# Getting started with the API https://myanimelist.net/forum/?topicid=1973141
+
+# Official MAL API https://myanimelist.net/clubs.php?cid=13727
+# Current version of the API: v2
+# API endpoint: https://api.myanimelist.net/v2
+# OAuth2 authentication endpoint: https://myanimelist.net/v1/oauth2
