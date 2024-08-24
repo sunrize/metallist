@@ -1,0 +1,9 @@
+# SQLite
+https://www.sqlite.org/pragma.html#pragma_foreign_keys
+https://www.sqlite.org/foreignkeys.html
+
+## DBeaver
+New connection -> SQLite -> Driver settings -> 'foreign keys' - 'true'
+
+## Go
+?
