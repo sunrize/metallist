@@ -2,3 +2,4 @@
 internal/services/definitions/anilist/genqlient.graphql.dev
 config/secrets.yaml
 config/*/auth
+config/db/*.db
