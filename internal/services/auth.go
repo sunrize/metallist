@@ -1,4 +1,4 @@
-package auth
+package services
 
 import (
 	"context"
@@ -15,7 +15,7 @@ import (
 	"github.com/spf13/viper"
 	"golang.org/x/oauth2"
 
-	"metallist/internal/common/helpers"
+	"metallist/internal/urlhelper"
 )
 
 type AuthService struct {
@@ -85,7 +85,7 @@ func AuthServices() []AuthService {
 func LoginHandler(service AuthService) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// Setting RedirectUrl to the current server URL
-		service.Config.RedirectURL = helpers.GetFullURLOverridePath(r, service.CallbackPathURL())
+		service.Config.RedirectURL = urlhelper.GetFullURLOverridePath(r, service.CallbackPathURL())
 
 		url := service.Config.AuthCodeURL("state", oauth2.SetAuthURLParam("code_challenge", service.Verifier))
 		http.Redirect(w, r, url, http.StatusTemporaryRedirect)
